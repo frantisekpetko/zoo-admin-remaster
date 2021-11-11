@@ -1,0 +1,26 @@
+[
+    {
+        "name": {
+            "name": "Triturus alpestris",
+            "latinname": "Triturus alpestris",
+            "image": "Triturus alpestris8d675e18-a759-4010-a4c1-677673d7f179.jpg"
+        },
+        "latinname": "Triturus alpestris",
+        "extlinks": [
+            "http://www.boldsystems.org/index.php/TaxBrowser_TaxonPage?taxid=350682",
+            "http://www.ubio.org/browser/details.php?namebankID=4204052",
+            "https://portal.nature.cz/publik_syst/nd_nalez-public.php?idTaxon=108457",
+            "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=775917",
+            "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=776592",
+            "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=54263",
+            "https://amphibiansoftheworld.amnh.org/Amphibia/Caudata/Salamandridae/Pleurodelinae/Ichthyosaura/Ichthyosaura-alpestris",
+            "https://amphibiaweb.org/species/4292",
+            "https://eol.org/pages/330758",
+            "https://www.gbif.org/species/2431783",
+            "https://www.inaturalist.org/taxa/135104",
+            "https://apiv3.iucnredlist.org/api/v3/taxonredirect/59472",
+            "https://worldcat.org/issn/2533-350X",
+            "https://data.nbn.org.uk/Taxa/NHMSYS0020740241"
+        ]
+    }
+]

@@ -1,0 +1,8 @@
+db:
+ type: 'sqlite'
+ database: './data/database.sqlite'
+ synchronize: true
+
+jwt:
+ secret: 'topSecret51'
+ expiresIn: 3600

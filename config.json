@@ -1,0 +1,15 @@
+{
+  "sqlite": {
+    "database": "./dist/data/database.sqlite",
+    "user": "admin",
+    "password": "karamba"
+  },
+    "server": {
+        "port": 4000
+    },
+    "app": {
+        "layouts": true,
+        "themes": true,
+        "languages": true
+    }
+}

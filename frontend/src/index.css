@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600');
+@import url('https://fonts.googleapis.com/css?family=Nothing+You+Could+Do');
+
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Special+Elite');
+
+.static-position {
+  position: absolute;
+  bottom: 0;
+  height: 120px !important;
+}
+
+.customized-link {
+  color: white;
+  text-decoration: none !important;
+}
+
+.red-close-btn {
+  color: #a51809;
+}
+
+.green-close-btn {
+  color: black;
+}
+
+.close-btn {
+  margin-left: 15px;
+
+  font-weight: bold;
+  float: right;
+  font-size: 3rem;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.close-btn:hover {
+  color: black;
+}
+
+.customized-link:hover {
+  color: white;
+}
+.heading {
+  font-family: 'Nothing You Could Do', cursive;
+  font-weight: 700;
+  font-size: 4rem;
+}
+
+.search-field {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  width: 75%;
+  color: black;
+
+}
+
+.search-field-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-middle {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  flex-direction:column;
+  flex-flow: column;
+  align-items: center;
+  /*background-color: #F0FFF0;*/
+  width: 100%;
+  margin: 0 auto;
+  background-color: white;
+  height: calc(100% - 65px - 125px);
+  text-align: center;
+  padding-bottom: 5rem;
+}
+
+.flex {
+  align-content: space-between;
+  justify-content: space-between;
+}
+
+.page-break {
+  page-break-after: always; /* CSS 2.1 syntax */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.proper-width {
+  width: 21rem;
+}
+
+.limited-width {
+  margin-top: 2rem;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.navigation {
+  height: 65px;
+  background-color: #647866;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /*overflow-y: hidden;*/
+  height: 100%;
+}
+
+
+#app {
+  height: 100%;
+}
+.list {    list-style: none;   }
+.list li:before { content: '> '; font-weight: 700}
+
+.list li:last-child {
+  position: sticky;
+  bottom:0;
+}
+
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  text-align: center;
+  /*background-color: #daa520;*/
+  background-color: darkolivegreen;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 32px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+
+  color: #111;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  background-color: #000000;
+  color: darkolivegreen;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 36px;
+  padding-right: 0.85em;
+
+}
+
+.sidenav .closebtn:hover {
+  /*
+  background-color: #6d5210;
+  color: black;
+  */
+  background-color: #000000;
+  color: darkolivegreen;
+
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+
+.styled-grid-loader {
+  margin-top: -8rem !important;
+}
+
+
+.card-content {
+
+  min-height: 25rem;
+  max-height: 25rem !important;
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: none !important;
+
+}
+
+
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
