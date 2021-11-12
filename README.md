@@ -4,7 +4,7 @@
 
 ## Description
 
-Example of OpeningPage with [Nest](https://github.com/nestjs/nest) NodeJS TypeScript framework and [ReactJS](https://reactjs.org/) JavaScript library.
+Example of Zoo Admin App with [Nest](https://github.com/nestjs/nest) NodeJS TypeScript framework and [ReactJS](https://reactjs.org/) JavaScript library.
 
 ## Installation
 
