@@ -35,9 +35,9 @@ export default function Navigation(props) {
 
     const logOut = useStoreActions((actions) => actions.user.logOut);
     const username = useStoreState((state) => state.user.username);
-    //console.log('username', username);
+    //commands.log('username', username);
     const token = sessionStorage.getItem('accessToken');
-    //console.log('accessToken', token, sessionStorage.getItem('accessToken'));
+    //commands.log('accessToken', token, sessionStorage.getItem('accessToken'));
     const navigate = useHistory();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

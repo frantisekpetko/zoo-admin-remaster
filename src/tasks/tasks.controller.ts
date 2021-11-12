@@ -73,7 +73,7 @@ export class TasksController {
         }
         else {
 
-            console.log(filterDto);
+            commands.log(filterDto);
             return this.tasksService.getAllTasks();
         }
     }

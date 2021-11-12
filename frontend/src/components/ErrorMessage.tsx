@@ -42,16 +42,16 @@ const ErrorMessage: FC<{ errors: any }> = (props) => {
 
         if (Array.isArray(errors)) {
             constraints = errors.map((constraint, idx) => <li key={idx}>{constraint}</li>);
-            //console.log('Array.isArray(errors)')
+            //commands.log('Array.isArray(errors)')
         }
         if (errors.hasOwnProperty('response') && errors.response.hasOwnProperty('message') && typeof errors.response.message == 'string') {
             constraints = <li>{errors.message}</li>;
-            //console.log('errors.hasOwnProperty(\'response\') && errors.response.hasOwnProperty(\'message\') && typeof errors.response.message == \'string\'')
+            //commands.log('errors.hasOwnProperty(\'response\') && errors.response.hasOwnProperty(\'message\') && typeof errors.response.message == \'string\'')
         }
 
         if (errors.hasOwnProperty('response') && errors.response.hasOwnProperty('message') && Array.isArray(errors.response.message)) {
             constraints = errors.response.message.map((constraint: string, idx: number) => <li key={idx}>{constraint}</li>);
-            //console.log('errors.hasOwnProperty(\'response\') && errors.response.hasOwnProperty(\'message\') && Array.isArray(errors.response.message)')
+            //commands.log('errors.hasOwnProperty(\'response\') && errors.response.hasOwnProperty(\'message\') && Array.isArray(errors.response.message)')
         }
 
         return constraints;

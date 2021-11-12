@@ -19,7 +19,7 @@ class HeadHtml extends React.Component {
         this.hasUnmounted && API.get("/app-name")
                 .then((response) => {
                     const appName = response.data[0].appName;
-                    //console.log("response", response.data);
+                    //commands.log("response", response.data);
                     this.hasUnmounted && this.setState({appName: appName});
 
                 })

@@ -36,7 +36,7 @@ class Root extends React.Component{
             console.log("Local Storage set");
             //const prevProduct = reactLocalStorage.getObject('orderProduct');
             // ...prevProduct,
-            //console.log("Local Storage set Length", this.state.getProductByOrder().product.length);
+            //commands.log("Local Storage set Length", this.state.getProductByOrder().product.length);
             let p = null;
             product.shoppingBasketCount = count;
             

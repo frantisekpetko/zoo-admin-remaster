@@ -8,7 +8,7 @@
   "migrations": [ "dist/**/*..js" ],
   "subscribers": [ "src/subscriber/**/*.ts" ],
   "cli": {
-    "entitiesDir": "src/entity",
+    "entitiesDir": "dist/src/entity",
     "migrationsDir": "src/migration",
     "subscribersDir": "src/subscriber"
   }

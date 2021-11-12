@@ -12,7 +12,7 @@ import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Animal } from './animal.entity';
 
 @Entity({ name: 'extlink' })
-export class Extlink {
+export class Extlink extends BaseEntity{
   @PrimaryGeneratedColumn()
   id: number;
 

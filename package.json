@@ -8,15 +8,14 @@
   "scripts": {
     "admin": "node ./node_modules/express-admin/app.js .",
     "prebuild": "rimraf dist",
-
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "repair:db": "rm ./data/database.sqlite && touch ./data/database.sqlite ",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "prestart:prod": "rimraf dist  && npm run build",
     "build2": "cd frontend && npm i &&  cd .. && tsc -p tsconfig.build.json  && node cli prepare:app",
-    "build": "tsc -p tsconfig.build.json && node cli prepare:app",
+    "heroku-build": "nest build && node index.js && node cli data",
+    "build": "nest build",
     "postinstall": "npm run prestart:prod",
     "start:prod": "node dist/src/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",

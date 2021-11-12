@@ -45,37 +45,25 @@ export class AppService {
   async getImagesFromInternet(): Promise<void> {
     const image_finder = require('image-search-engine');
 
-    const latinNamesObj = JSON.parse(
-      fs.readFileSync(
-        resolve('./src/data/seed/animals/latinnames.json'),
-        'utf8',
-      ),
-    );
-    const descriptionObj = JSON.parse(
-      fs.readFileSync(
-        resolve('./src/data/seed/animals/description.json'),
-        'utf8',
-      ),
-    );
-
-    //console.log(JSON.stringify(latinNamesObj));
     const namesObj = JSON.parse(
       fs.readFileSync(resolve('./src/data/seed/animals/names.json'), 'utf8'),
     );
     const latinnamesObj = JSON.parse(
-      fs.readFileSync(
-        resolve('./src/data/seed/animals/latinnames.json'),
-        'utf8',
-      ),
+      fs.readFileSync(resolve('./src/data/seed/animals/latinnames.json'), 'utf8'),
     );
+
+    const descriptionObj = JSON.parse(
+      fs.readFileSync(resolve('./src/data/seed/animals/description.json'), 'utf8'),
+    );
+
     const imagesObj: { name: string; latinname: string; image: string }[] = [];
 
-    fs.rmSync(resolve('./frontend/src/images'), {
+    fs.rmSync(resolve('./frontend/public/images'), {
       recursive: true,
       force: true,
     });
 
-    fs.mkdir(resolve('./frontend/src/images'), (err) => {
+    fs.mkdir(resolve('./frontend/public/images'), (err) => {
       if (err) {
         return console.error(err);
       }
@@ -104,10 +92,10 @@ export class AppService {
           });
           //, {size: "large", color: "pink"}
           //download(url);
-          const imageName = `${latinNamesObj[index]}${uuidv4()}.jpg`;
+          const imageName = `${latinnamesObj[index]}${uuidv4()}.jpg`;
           await downloadImage(
             `${url}`,
-            resolve(`./frontend/src/images/${imageName}`),
+            resolve(`./frontend/public/images/${imageName}`),
           ).catch((e) => console.log('Error: ', e));
           imagesObj.push({
             name: descriptionObj[index],
@@ -119,7 +107,7 @@ export class AppService {
         }
       }),
     );
-    //console.log(JSON.stringify(imagesObj, null, 4));
+    //commands.log(JSON.stringify(imagesObj, null, 4));
 
     fs.writeFileSync(
       './src/data/seed/animals/images.json',
@@ -198,49 +186,48 @@ export class AppService {
     }
   }
 
-  @Command('store:data', {
+  @Command('store:datas', {
     desc: 'Store intial data',
     args: {},
   })
   async storeData() {
-    const descriptionObj = JSON.parse(
+    const animalsObj = JSON.parse(
       fs.readFileSync(
-        resolve('./src/data/seed/animals/description.json'),
+        resolve('./src/data/seed/animals/animals.json'),
         'utf8',
       ),
     );
 
-    const extlinksObj = JSON.parse(
-      fs.readFileSync(resolve('./src/data/seed/animals/extlinks.json'), 'utf8'),
-    );
-
-    const imagesObj = JSON.parse(
-      fs.readFileSync(resolve('./src/data/seed/animals/images.json'), 'utf8'),
-    );
-
     const conn = getConnection();
 
-    for (const desc of descriptionObj) {
-      const index = descriptionObj.indexOf(desc);
+    const entities = getConnection().entityMetadatas;
+
+    for (const entity of entities) {
+      const repository = getConnection().getRepository(entity.name); // Get repository
+      await repository.clear(); // Clear each entity table's content
+    }
+
+    for (const _animal of animalsObj) {
+      //const index = animalsObj.indexOf(_animal);
       const animal = new Animal();
-      animal.name = desc.name;
-      animal.latinname = desc.latinname;
-      animal.description = desc.extract;
+      animal.name = _animal.name;
+      animal.latinname = _animal.latinname;
+      animal.description = _animal.extract;
       const image = new Image();
-      image.urlName = imagesObj[index].image;
+      image.urlName = _animal.image;
       await conn.manager.save(image);
 
       animal.images = [image];
-      console.log(animal.images);
+      //console.log(animal.images);
       animal.extlinks = [];
 
-      for (const extlink of extlinksObj[index].extlinks) {
+      for (const extlink of _animal.extlinks) {
         const extLink = new Extlink();
         extLink.link = extlink;
         await conn.manager.save(extLink);
         animal.extlinks.push(extLink);
       }
-      console.log(animal.extlinks);
+      //console.log(animal.extlinks);
       await conn.manager.save(animal);
     }
   }
@@ -254,17 +241,17 @@ export class AppService {
                 .createQueryBuilder('trait')
                 .skip(0)
                 .take(1)
-                .orderBy('trait.id', 'DESC');*/
+                .orderBy('trait.id', 'DESC');
+    */
     /*
     const createTraitsDto: CreateTraitsDto = new CreateTraitsDto();
     createTraitsDto.name = 'lord';
 
     const query = getConnection().createQueryBuilder();
     await query.insert().into(Trait).values([createTraitsDto]).execute();
-
     */
     const salt = await bcrypt.genSalt();
-    //console.log(salt);
+    //commands.log(salt);
 
     const user = new User();
 
@@ -272,7 +259,7 @@ export class AppService {
     user.salt = salt;
     user.password = await bcrypt.hash('123456', salt);
 
-    //console.log(user.password);
+    //commands.log(user.password);
     try {
       await user.save();
       _cli.success('success');

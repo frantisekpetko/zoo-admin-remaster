@@ -64,7 +64,7 @@ module.exports = {
     },
     /*
   node: {
-        console: true,
+        commands: true,
         fs: 'empty',
         net: 'empty',
         tls: 'empty'

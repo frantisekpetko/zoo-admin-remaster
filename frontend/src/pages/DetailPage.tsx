@@ -9,6 +9,7 @@ import AnimalContent from '../components/AnimalContent';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
 import { Grid } from '@mui/material';
+import Head from "../components/Head";
 
 const BackButton = styled(Button)`
     position: relative;
@@ -50,6 +51,7 @@ export default function DetailPage() {
     return (
         <div>
             <Navigation />
+            <Head title={'Animals detail'} />
             <div style={{ position: 'absolute' }}>
                 <BackButton variant="contained" color="success" onClick={() => history.push(`/`)}>
                     Back

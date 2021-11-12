@@ -14,7 +14,7 @@ export class UserRepository extends Repository<User> {
     const { username, password } = authCredentialsDto;
 
     const salt = await bcrypt.genSalt();
-    //console.log(salt);
+    //commands.log(salt);
 
     const user = new User();
 
@@ -22,7 +22,7 @@ export class UserRepository extends Repository<User> {
     user.salt = salt;
     user.password = await this.hashPassword(password, user.salt);
 
-    //console.log(user.password);
+    //commands.log(user.password);
     try {
       await user.save();
     } catch (error) {
@@ -32,7 +32,7 @@ export class UserRepository extends Repository<User> {
       } else {
         throw new InternalServerErrorException();
       }
-      //console.log(error);
+      //commands.log(error);
     }
   }
 
@@ -40,10 +40,10 @@ export class UserRepository extends Repository<User> {
     authCredentialsDto: AuthCredentialsDto,
   ): Promise<string> {
     const { username, password } = authCredentialsDto;
-    //console.log(username, password);
+    //commands.log(username, password);
     const user = await this.findOne({ username });
-    //console.log('user', user);
-    //console.log('user.validatePassword()', user.validatePassword(password));
+    //commands.log('user', user);
+    //commands.log('user.validatePassword()', user.validatePassword(password));
     if (user && (await user.validatePassword(password))) {
       return user.username;
     } else {

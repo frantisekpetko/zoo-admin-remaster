@@ -15,6 +15,7 @@ import { join, resolve } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { AnimalsModule } from './animals/animals.module';
 import { root } from './config/paths';
+import { CommandsModule } from './commands/commands.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { root } from './config/paths';
     StoryModule,
     ConfigModule.forRoot({ envFilePath: `.${process.env.NODE_ENV}.env` }),
     AnimalsModule,
+    CommandsModule,
   ],
   providers: [AppGateway, AppService],
 })

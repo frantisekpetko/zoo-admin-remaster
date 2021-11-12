@@ -33,6 +33,7 @@ import { Box, CardMedia } from '@mui/material';
 import { useStoreActions, useStoreState } from '../store';
 import Content from '../components/common/Content';
 import ContenLoader from 'src/components/ContentLoader';
+import Head from "../components/Head";
 
 library.add(fab, faChevronRight);
 
@@ -216,6 +217,7 @@ const AnimalPage = () => {
 
     return (
         <div style={{ maxHeight: '100%' }}>
+            <Head title={'Animals'} />
             <Navigation />
             <Content>
                 <Box className={'search-field-container'}>
