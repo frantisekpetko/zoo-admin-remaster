@@ -18,7 +18,7 @@ $ cd frontend && npm install
 ```bash
 # development
 $ npm run build
-$ node cli prepare:app
+$ node cli data
 $ npm run start:dev
 $ cd frontend && npm start
 
