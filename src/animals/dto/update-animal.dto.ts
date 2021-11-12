@@ -24,9 +24,10 @@ export class UpdateAnimalDto {
 
   @IsNotEmpty()
   description: string;
-
+  /*
   @IsNotEmpty()
   images: Express.Multer.File | Array<Express.Multer.File>;
+  */
 
   @IsUrl()
   @IsArray()
