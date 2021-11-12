@@ -1,20 +1,15 @@
-import { Action, createStore, createTypedHooks, Thunk } from 'easy-peasy';
-import { action, thunk } from 'easy-peasy';
-import trait from './models/trait';
+import { createStore, createTypedHooks } from 'easy-peasy';
 import user from './models/user';
 import animal from './models/animal';
-import { TraitModel } from 'src/store/models/trait';
 import { UserModel } from 'src/store/models/user';
 import { AnimalModel } from './models/animal';
 
 interface StoreModel {
-    trait: TraitModel;
     user: UserModel;
     animal: AnimalModel;
 }
 
 const model: StoreModel = {
-    trait,
     user,
     animal,
 };

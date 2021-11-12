@@ -1,12 +1,8 @@
 import React, { useEffect, FC } from 'react';
 import 'src/App.css';
-import { useStoreState, useStoreActions } from 'src/store';
-import Trait from 'src/store/models/trait';
-import { RouteComponentProps } from 'react-router';
 import styled from 'styled-components';
 import Head from '../components/Head';
 import Navigation from '../components/common/Navigation';
-import { Grid } from '@mui/material';
 import Footer from '../components/common/Footer';
 import Content from '../components/common/Content';
 

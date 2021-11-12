@@ -227,6 +227,7 @@ const AnimalPage = () => {
                         classNames="search-field"
                         onEnter={() => filterData()}
                         onChange={(value, e) => updateSearchString(value, e)}
+                        onSearchClick={() => filterData()}
                     />
                 </Box>
                 <div style={{ marginBottom: '5rem', fontSize: '2rem' }}>{text}</div>

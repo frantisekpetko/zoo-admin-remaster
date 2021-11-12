@@ -57,7 +57,9 @@ async function getImages() {
         });
         //, {size: "large", color: "pink"}
         //download(url);
-        const imageName = `${animal}${uuidv4()}.jpg`;
+        const animalWihoutWhiteSpace = animal.replace(/\s/g, '');
+
+        const imageName = `${animalWihoutWhiteSpace}.jpg`;
         await downloadImage(
           `${url}`,
           resolve(`./frontend/public/images/${imageName}`),

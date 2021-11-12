@@ -7,6 +7,7 @@ import RegisterPage from '../pages/RegisterPage';
 import DetailPage from '../pages/DetailPage';
 import AnimalPage from '../pages/AnimalPage';
 import NotFound404 from '../pages/NotFound404';
+import DataUploadPage from '../pages/DataUploadPage';
 
 const Routes = () => {
     const isAuth = sessionStorage.getItem('accessToken');
@@ -28,6 +29,23 @@ const Routes = () => {
                         />
                     ) : (
                         <LoginPage />
+                    )
+                }
+            />
+
+            <Route
+                exact
+                path="/upload"
+                render={(props) =>
+                    isAuth !== null ? (
+                        <DataUploadPage />
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: '/login',
+                                //state: { from: props.location }
+                            }}
+                        />
                     )
                 }
             />

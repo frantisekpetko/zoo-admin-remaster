@@ -61,40 +61,32 @@ export default function Navigation(props) {
         navigate.push('/');
         window.location.reload();
     };
-    //#666600
+
     return (
         <Box sx={{ flexGrow: 1 }} style={{ zIndex: 1000, position: 'relative' }}>
             <div id="mySidenav" className="sidenav" style={open ? { width: '100%', zIndex: 9999999 } : { width: '0' }}>
                 <a href="#" className="closebtn" onClick={() => handleFullscreenMenu()}>
                     &times;
                 </a>
-                {
-                token !== null
-                  ?
-                  (
+                {token !== null ? (
                     <>
-                   <Link style={{ color: '#6D5210 !important' }} to="/">
-                       HomePage
-                   </Link>
-                   <Link style={{ color: '#6D5210 !important' }} to="/animalsr">
-                       Animals
-                   </Link>
+                        <Link style={{ color: '#6D5210 !important' }} to="/" onClick={() => handleFullscreenMenu()}>
+                            HomePage
+                        </Link>
+                        <Link style={{ color: '#6D5210 !important' }} to="/animals" onClick={() => handleFullscreenMenu()}>
+                            Animals
+                        </Link>
                     </>
-                    )
-                    :
-                    (
+                ) : (
                     <>
-                    <Link style={{ color: '#6D5210 !important' }} to="/login">
-                    Login
-                    </Link>
-                    <Link style={{ color: '#6D5210 !important' }} to="/register">
-                    Register
-                    </Link>
+                        <Link style={{ color: '#6D5210 !important' }} to="/login" onClick={() => handleFullscreenMenu()}>
+                            Login
+                        </Link>
+                        <Link style={{ color: '#6D5210 !important' }} to="/register" onClick={() => handleFullscreenMenu()}>
+                            Register
+                        </Link>
                     </>
-                    )
-
-                }
-
+                )}
             </div>
             {openFullsreenModal && (
                 <FullscreenModal
@@ -154,8 +146,7 @@ export default function Navigation(props) {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                                <MenuItem onClick={handleClose}>{username !== null ? username : 'Account'}</MenuItem>
+                                <MenuItem onClick={handleClose}>{sessionStorage.getItem('username') !== null ? sessionStorage.getItem('username')  : 'Account'}</MenuItem>
                                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
                             </Menu>
                         </div>

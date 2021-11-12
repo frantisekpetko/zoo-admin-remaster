@@ -16,6 +16,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AnimalsModule } from './animals/animals.module';
 import { root } from './config/paths';
 import { CommandsModule } from './commands/commands.module';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { CommandsModule } from './commands/commands.module';
     ConfigModule.forRoot({ envFilePath: `.${process.env.NODE_ENV}.env` }),
     AnimalsModule,
     CommandsModule,
+    UploadModule,
   ],
   providers: [AppGateway, AppService],
 })

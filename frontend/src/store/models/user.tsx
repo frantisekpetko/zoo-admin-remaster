@@ -1,8 +1,7 @@
 import { Action, createStore, createTypedHooks, Thunk } from 'easy-peasy';
 import { action, thunk } from 'easy-peasy';
-import Ajax  from 'src/tools/Ajax';
-import {reactLocalStorage} from 'reactjs-localstorage';
-
+import Ajax from 'src/tools/Ajax';
+import { reactLocalStorage } from 'reactjs-localstorage';
 
 export interface UserRequest {
     username: string;
@@ -14,19 +13,19 @@ export interface User {
 }
 
 export interface UserModel {
-    accessToken: string | null,
+    accessToken: string | null;
     username: string | null;
-    setUsername: Action<UserModel, string>
+    setUsername: Action<UserModel, string>;
     signIn: Thunk<UserModel, UserRequest>;
-    userLoading: boolean,
-    setUserLoading: Action<UserModel, boolean>,
+    userLoading: boolean;
+    setUserLoading: Action<UserModel, boolean>;
     userError: any;
     setUserError: Action<UserModel, any>;
-    signUp: Thunk<UserModel, UserRequest>,
-    loadTokenToMemory: Action<UserModel>,
-    removeTokenFromStorage: Action<UserModel>,
-    saveTokenToStorage: Action<UserModel, string>,
-    logOut: Action<UserModel>
+    signUp: Thunk<UserModel, UserRequest>;
+    loadTokenToMemory: Action<UserModel>;
+    removeTokenFromStorage: Action<UserModel>;
+    saveTokenToStorage: Action<UserModel, string>;
+    logOut: Action<UserModel>;
     /*getTraits: Thunk<UserModel>;
     setTraits: Action<UserModel, UserModel>
     addTrait: Action<UserModel, UserModel>;
@@ -37,7 +36,6 @@ export interface UserModel {
     */
 }
 
-
 const user: UserModel = {
     accessToken: null,
     username: null,
@@ -45,40 +43,36 @@ const user: UserModel = {
         sessionStorage.setItem('username', payload);
         state.username = payload;
     }),
-    signIn: thunk(async (actions, payload:UserRequest) => {
+    signIn: thunk(async (actions, payload: UserRequest) => {
         const data = await Ajax.post('/auth/signin', payload);
         return data;
         //actions.saveTokenToStorage(data.accessToken);
         //actions.loadTokenToMemory();
-
     }),
     userLoading: false,
     setUserLoading: action((state, payload) => {
-      state.userLoading = payload;
+        state.userLoading = payload;
     }),
     userError: null,
-    setUserError:  action((state, payload) => {
-      state.userError = payload;
+    setUserError: action((state, payload) => {
+        state.userError = payload;
     }),
-    signUp: thunk(async (actions, payload:UserRequest) => {
-        await Ajax.post(`auth/signup`, payload );
+    signUp: thunk(async (actions, payload: UserRequest) => {
+        await Ajax.post(`auth/signup`, payload);
     }),
-    loadTokenToMemory:  action((state,  actions) => {
+    loadTokenToMemory: action((state, actions) => {
         state.accessToken = sessionStorage.getItem('accessToken');
     }),
-    removeTokenFromStorage:  action((state,  actions) => {
+    removeTokenFromStorage: action((state, actions) => {
         sessionStorage.removeItem('accessToken');
     }),
-    saveTokenToStorage:  action((state, payload) => {
+    saveTokenToStorage: action((state, payload) => {
         sessionStorage.setItem('accessToken', payload);
     }),
-    logOut:  action((state:any,  actions) => {
+    logOut: action((state: any, actions) => {
         state.username = '';
-        sessionStorage.removeItem('accessToken')
-    })
-
+        sessionStorage.removeItem('accessToken');
+    }),
 };
 
 export default user;
-
-

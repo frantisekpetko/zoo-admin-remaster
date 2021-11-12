@@ -1,19 +1,21 @@
-import { TypeOrmModuleOptions } from "@nestjs/typeorm";
-import { root } from "./paths";
+import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { root } from './paths';
+
+console.log('Root ' + root + '/../../index.js');
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
-    type: "sqlite",
-    database: root + `/data/database.sqlite`,
-    logging: true,
-    autoLoadEntities: true,
-    synchronize: true,
-    //entities: ["src/entity/**/*.ts"],
-    entities: ["dist/**/*.entity.js"],
-    migrations: ["src/migration/**/*.ts"],
-    subscribers: ["src/subscriber/**/*.ts"],
-    cli: {
-      entitiesDir: "src/entity",
-      migrationsDir: "src/migration",
-      subscribersDir: "src/subscriber"
-    }
-}
+  type: 'sqlite',
+  database: root + `/data/database.sqlite`,
+  logging: true,
+  autoLoadEntities: true,
+  synchronize: true,
+  //entities: ["src/entity/**/*.ts"],
+  entities: ['dist/**/*.entity.js'],
+  migrations: ['src/migration/**/*.ts'],
+  subscribers: ['src/subscriber/**/*.ts'],
+  cli: {
+    entitiesDir: 'src/entity',
+    migrationsDir: 'src/migration',
+    subscribersDir: 'src/subscriber',
+  },
+};
